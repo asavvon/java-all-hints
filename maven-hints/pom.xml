@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>java-all-hints</artifactId>
+        <groupId>java-all-hints</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <!--
+        1) Если надо указать на определённый ПОМ, то указывается:
+            <relativePath>.../pom.xml</relativePath>
+        2) Родитель должен иметь <packaging>pom</packaging>, а вот чайлд уже jar\war (jar и так по умолчанию)
+        3) Смотри инфо про Аггрегацию и наследование в Парент Поме
+        -->
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>maven-hints</artifactId> <!-- Current project - for example HK Parser  -->
+    <version>1.0-SNAPSHOT</version> <!-- If the label SNAPSHOT added - maven every time will check new version -->
+
+    <name>MavenExamples</name>
+    <url>http://maven.apache.org</url>
+
+    <!-- PROPERTIES - regexp see in README.MD -->
+    <properties>
+        <junit.version>4.12</junit.version> <!-- Any name like junit.version -->
+    </properties>
+
+
+
+</project>
