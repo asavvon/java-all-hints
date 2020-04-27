@@ -24,8 +24,90 @@
     <!-- PROPERTIES - regexp see in README.MD -->
     <properties>
         <junit.version>4.12</junit.version> <!-- Any name like junit.version -->
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version> <!-- Можно обойтись тоько этим определением версии джавы -->
+        <maven.compiler.source>1.8</maven.compiler.source>  <!-- Не важные - С чего собираем-->
+        <maven.compiler.target>1.8</maven.compiler.target>  <!-- Не важные -Какая совместимость по байт коду-->
     </properties>
 
 
+    <!-- DEPENDENCIES -->
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>  <!-- Using props junit.version -->
+            <scope>test</scope>
+        </dependency>
+
+        <!--EXTERNAL LOCAL DEPENDENCY
+        <dependency>
+            <groupId>extDependency</groupId>
+            <artifactId>extDependency</artifactId>
+            <scope>system</scope>
+            <version>1.0</version>
+            <systemPath>${basedir}\war\WEB-INF\lib\extDependency.jar</systemPath>   !!!!!!!!!!!!! jcon для Sybase к примеру
+        </dependency>
+        -->
+
+        <!--AVOIDING TRANSITIVE DEPENDENCY
+        <dependency>
+            <groupId>org.dbunit</groupId>
+            <artifactId>dbunit</artifactId>
+            <version>${dbunit.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                README.MDExclude transitive dependency to JUnit-3.8.2
+                <exclusion>
+                    <artifactId>junit</artifactId>
+                    <groupId>junit</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        -->
+
+    </dependencies>
+
+    <!-- Оверайдим REMOTE repository -->
+    <repositories>
+        <repository>
+            <id>org.source.repo</id>
+            <url>http://maven.orgName.com/maven2/</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <!-- ПЛАГИН ЛИМИТАТОР НА ОПРЕДЕЛЁННЫЕ ВЕРСИИ Maven version, JDK version and OS family
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.0.0-M2</version>
+                <executions>
+                    <execution>
+                        <id>enforce-versions</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>2.0.6</version>
+                                </requireMavenVersion>
+                                <requireJavaVersion>
+                                    <version>1.5</version>
+                                </requireJavaVersion>
+                                <requireOs>
+                                    <family>unix</family>
+                                </requireOs>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            -->
+        </plugins>
+    </build>
 
 </project>

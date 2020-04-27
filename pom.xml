@@ -13,6 +13,8 @@
         <module>maven-hints</module> <!-- Пример аггрегации. Когда парент знает о чайлдах. -->
         <!-- Some commands (goals specifically) handle project aggregation differently -->
         <!-- Если все чайлды состоят в парнете как единое целое, то аггрегация, нет - наследование. Для Хк наследование -->
+        <!-- Maven child projects are independent maven projects but inherit properties from parent project.
+                All child projects inside a parent project can be build with a single command.  -->
     </modules>
 
 
